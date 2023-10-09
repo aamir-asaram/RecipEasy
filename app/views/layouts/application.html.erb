@@ -13,7 +13,6 @@
 
   <body class="bg-red-100">
     <nav class="flex items-center justify-evenly mt-8 mb-4 [&>*:not(:first-child)]:mt-1 [&>*:not(:first-child)]:text-lg [&>*:not(:first-child)] -ml-16">
-
       <div class="text-3xl font-semibold w-fit">
         <span class=" text-yellow-500 m-0 p-0">Recip</span>
         <span class=" text-red-500 m-0 -ml-2 p-0">Easy</span>
@@ -22,8 +21,6 @@
       <%= link_to 'My Recipes', recipes_path, class: "hover:text-red-500 hover:underline" %>
       <%= link_to 'My Foods', foods_path, class: "hover:text-red-500 hover:underline" %>
       <%= link_to 'My Shopping List', shopping_path, class: "hover:text-red-500 hover:underline" %>
-    </nav>
-
     </nav>
     <%= yield %>
   </body>
