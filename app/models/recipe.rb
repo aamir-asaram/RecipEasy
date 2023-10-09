@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods, foreign_key: :recipe_id, dependent: :destroy
@@ -8,5 +10,4 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
   validates :public, inclusion: { in: [true, false] }
   validates :user_id, presence: true
-
 end
