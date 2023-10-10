@@ -1,1 +1,18 @@
-<h1>My Food List</h1>
+<div id="foods">
+  <%= link_to 'Add food', new_food_path, class: 'btn' %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Measurment unit</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @foods %>
+    </tbody>
+  </table>
+</div>

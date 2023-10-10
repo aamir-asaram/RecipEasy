@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+#foods {
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+}
+
+.btn {
+  margin: 20px 0;
+  padding: 8px 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin-left: auto;
+}
+
+#foods table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+}
+
+#foods th,
+#foods td {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 20px;
+}
