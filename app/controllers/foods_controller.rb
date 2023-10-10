@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[ show edit update destroy ]
-  
+  before_action :set_food, only: %i[show edit update destroy]
+
   def index
     # Find all foods that belong to the current user
     @foods = current_user.foods
@@ -29,8 +29,8 @@ class FoodsController < ApplicationController
   private
 
   def set_food
-      @food = Food.find(params[:id])
-    end
+    @food = Food.find(params[:id])
+  end
 
   def foods_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
