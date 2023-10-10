@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'
   get '/recipes', to: 'users#index', as: 'recipes'
   get '/general_shopping_list', to: 'recipe_foods#index', as: 'shopping'
+
+#  link to delete recipe
+  delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
 end
