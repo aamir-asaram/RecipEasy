@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @recipes = Recipe.find_by(user_id: 1)
+    user = User.find(1) # TODO: Change this to current_user
+    @recipes = user.recipes
   end
 end

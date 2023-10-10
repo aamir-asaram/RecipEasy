@@ -1,1 +1,11 @@
 <h1>My recipes</h1>
+<% @recipes.each do |recipe| %>
+  <div id="recipe-card" class="cursor-pointer group grid grid-cols-7 justify-center bg-red-200 my-6 ml-[5%] p-4 w-11/12">
+    <div class="mx-4 col-span-5">
+      <h2 class="text-2xl font-medium"><%= recipe.name %></h2>
+      <%= button_to 'Remove', recipe, method: :delete, class: 'hover:text-red-500' %>
+    </div>
+
+    <%= link_to 'View Recipe', recipe_path(id: recipe), class: 'group-hover:block hidden ml-[30%] mt-4 flex items-center justify-center rounded-full' %>
+  </div>
+<% end %>
