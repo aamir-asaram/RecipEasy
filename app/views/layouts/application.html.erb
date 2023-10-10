@@ -26,6 +26,8 @@
         <%= link_to 'My Recipes', recipes_path, class: "hover:text-red-500 hover:underline" %>
         <%= link_to 'My Foods', foods_path, class: "hover:text-red-500 hover:underline" %>
         <%= link_to 'My Shopping List', shopping_path, class: "hover:text-red-500 hover:underline" %>
+
+        <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "hover:text-red-500 hover:underline" %>
       </nav>
     <% end %>
 
