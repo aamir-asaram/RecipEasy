@@ -2,5 +2,5 @@
   <td><%= food.name %></td>
   <td><%= food.measurement_unit %></td>
   <td>$<%= food.price %></td>
-  <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= button_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
