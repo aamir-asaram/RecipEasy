@@ -1,1 +1,13 @@
-<h1>Public RECIPES</h1>
+<% @recipes.each do |recipe| %>
+  <div id="recipe-card" class="cursor-pointer group grid grid-cols-7 justify-center bg-red-200 my-6 ml-[5%] p-4 w-11/12" onclick="window.location.href = '<%= recipe_path(id: recipe) %>'">
+    <div class="mx-4 col-span-5">
+      <h2 class="text-2xl font-medium"><%= recipe.name %></h2>
+      <p>by <%= recipe.user.name %></p>
+    </div>
+    <div class="flex flex-col col-span-1">
+      <span>Total food items: <%= recipe.recipe_foods.length %></span>
+      <span>Total price: $<%= recipe.food_cost %></span>
+    </div>
+    <button class="group-hover:block hidden ml-10 bg-red-300 rounded-full">View Recipe</button>
+  </div>
+<% end %>
