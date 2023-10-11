@@ -4,7 +4,7 @@
     <span class="text-2xl font-medium">Preparation time: <%= @recipe.preparation_time %> minutes</span>
     <%= form_with model:@recipe, url: recipes_path  do |form| %>
       <label class="relative inline-flex items-center cursor-pointer">
-        <%= form.check_box :public, class: 'sr-only peer' %>
+        <%= form.check_box :public, class: 'sr-only peer', id: 'public-toggle' %>
         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
         <span class="ml-3 text-sm font-semibold flex items-center">Public</span>
       </label>
@@ -32,7 +32,7 @@
     <% @recipe.recipe_foods.each do |food| %>
       <tr>
         <td><%= food.food.name %></td>
-        <td><%= food.quantity %></td>
+        <td><%= food.quantity %> <%= food.food.measurement_unit %></td>
         <td>$<%= food.value %></td>
         <td>
           <%= button_to 'Destroy', user_recipe_recipe_food_path(user_id: @recipe, food_id: food, recipe_id: @recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -41,3 +41,35 @@
     <% end %>
   </tbody>
 </table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Fetch the CSRF token from your page's meta tags
+    var csrfToken = $('meta[name=csrf-token]').attr('content');
+    // Set the CSRF token in the request headers
+    $.ajaxSetup({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', csrfToken);
+      }
+    });
+
+    $('#public-toggle').change(function() {
+      var isChecked = $(this).is(':checked');
+      var recipeId = <%= @recipe.id %>;
+
+      $.ajax({
+        type: 'PUT',
+        url: '/users/<%= @recipe.user.id %>/recipes/' + recipeId,
+        data: { recipe: { public: isChecked } },
+        success: function(data) {
+          // Optionally, you can update the UI to reflect the new state if needed
+          console.log('Recipe public state updated.');
+        },
+        error: function(err) {
+          console.error('Error updating recipe public state:', err);
+        }
+      });
+    });
+  });
+</script>

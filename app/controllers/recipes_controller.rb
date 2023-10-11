@@ -23,6 +23,13 @@ class RecipesController < ApplicationController
     redirect_to recipes_path if @recipe.save
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    head :ok
+  end
+
+
   private
 
   def recipe_params
