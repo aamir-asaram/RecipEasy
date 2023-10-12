@@ -14,7 +14,8 @@
  *= require_self
  */
 
-#foods, #shopping-list {
+#foods,
+#shopping-list {
   max-width: 1000px;
   margin: 20px auto;
   display: grid;
