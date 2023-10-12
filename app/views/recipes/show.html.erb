@@ -40,7 +40,7 @@
         <td>$<%= food.value %></td>
         <td>
           <% if @recipe.user == current_user %>
-            <%= button_to 'Destroy', user_recipe_recipe_food_path(user_id: @recipe, food_id: food, recipe_id: @recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+           <%= button_to 'Delete Ingredient', user_recipe_recipe_food_path(food, food, food), method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
       </tr>

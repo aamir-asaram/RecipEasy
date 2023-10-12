@@ -74,4 +74,4 @@ gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-gem "jquery", "~> 0.0.1"
+gem 'jquery', '~> 0.0.1'

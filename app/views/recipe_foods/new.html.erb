@@ -1,15 +1,19 @@
-<%= form_with model: @recipe_food, url: user_recipe_recipe_foods_path, class: "ml-[5%] p-4 w-1/5 bg-yellow-100"  do |form| %>
-  <div class="mb-4">
-    <%= form.label :food_id, class: "block text-gray-700 font-bold" %>
-    <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: "Select a Food" }, class: "w-full p-2 rounded border border-gray-300" %>
-  </div>
+<% if current_user.foods.empty? %>
+  <h2 class="ml-[7%] mt-[2%] text-xl">You do not currently have any foods. Please <%= link_to 'add some', foods_path, class: "text-red-500" %> foods before creating a recipe.</h2>
+<% else %>
+  <%= form_with model: @recipe_food, url: user_recipe_recipe_foods_path, class: "ml-[5%] p-4 w-1/5 bg-yellow-100"  do |form| %>
+    <div class="mb-4">
+      <%= form.label :food_id, class: "block text-gray-700 font-bold" %>
+      <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: "Select a Food" }, class: "w-full p-2 rounded border border-gray-300" %>
+    </div>
 
-  <div class="mb-4">
-    <%= form.label :quantity, class: "block text-gray-700 font-bold" %>
-    <%= form.number_field :quantity, class: "w-full p-2 rounded border border-gray-300" %>
-  </div>
+    <div class="mb-4">
+      <%= form.label :quantity, class: "block text-gray-700 font-bold" %>
+      <%= form.number_field :quantity, class: "w-full p-2 rounded border border-gray-300" %>
+    </div>
 
-  <div class="mt-8">
-    <%= form.submit 'Create Recipe Food', class: "block w-full p-3 bg-yellow-300 rounded-full hover:bg-yellow-400" %>
-  </div>
+    <div class="mt-8">
+      <%= form.submit 'Create Recipe Food', class: "block w-full p-3 bg-yellow-300 rounded-full hover:bg-yellow-400" %>
+    </div>
+  <% end %>
 <% end %>

@@ -7,5 +7,4 @@ class RecipeFood < ApplicationRecord
   def value
     quantity * food.price
   end
-
 end

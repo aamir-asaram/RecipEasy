@@ -29,7 +29,6 @@ class RecipesController < ApplicationController
     head :ok
   end
 
-
   private
 
   def recipe_params
