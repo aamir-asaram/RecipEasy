@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Define your application routes
 
-  root 'recipes#index'
+  root 'users#index'
 
   resources :foods, except: [:update]
 
