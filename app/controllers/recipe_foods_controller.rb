@@ -1,5 +1,20 @@
 class RecipeFoodsController < ApplicationController
-  def index; end
+  def index
+    @ingredients = []
+    Food.all.each do |food|
+      recipe_foods_quantity = food.recipe_foods.sum(:quantity)
+      difference = food.quantity - recipe_foods_quantity
+      next unless difference.negative?
+
+      @ingredients << {
+        food: food,
+        quantity: difference.abs,
+        price: food.price,
+        total: difference.abs * food.price,
+        measurement: food.measurement_unit
+      }
+    end
+  end
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
