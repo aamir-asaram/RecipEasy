@@ -16,7 +16,7 @@
   <div class="flex items-center justify-between mt-4">
     <p class="text-lg"><%= @recipe.description %></p>
     <% if @recipe.user == current_user %>
-      <button class="bg-yellow-300 py-2 px-4 rounded-full"><%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(recipe_id: @recipe, user_id: @recipe.user) %></button>
+      <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(recipe_id: @recipe, user_id: @recipe.user), class:"bg-yellow-300 py-2 px-4 rounded-full" %>
     <% end %>
   </div>
 </div>

@@ -1,4 +1,3 @@
-# spec/features/recipes_index_spec.rb
 require 'rails_helper'
 
 RSpec.describe 'userss/index.html.erb', type: :feature do
