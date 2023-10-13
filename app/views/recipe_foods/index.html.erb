@@ -1,0 +1,30 @@
+<div id='shopping-list'>
+  <div class='summary'>
+    <p>Total amount of food to buy: <%= @ingredients.length %></p>
+    <p>Total value of food needed: $<%= @ingredients.sum { |ingredient| ingredient[:total] } %></p>
+  </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ingredients.each do |ingredient| %>
+          <tr>
+            <td><%= ingredient[:food].name %></td>
+            <td><%= ingredient[:quantity] %> </td>
+            <td>$<%= ingredient[:total] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+</div>
+
+
+
+

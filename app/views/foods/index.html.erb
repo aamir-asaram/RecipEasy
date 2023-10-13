@@ -1,0 +1,18 @@
+<div id="foods">
+  <%= link_to 'Add food', new_food_path, class: 'bg-yellow-300 ml-auto my-[20px] w-fit py-2 px-4 rounded-full' %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Measurment unit</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @foods %>
+    </tbody>
+  </table>
+</div>

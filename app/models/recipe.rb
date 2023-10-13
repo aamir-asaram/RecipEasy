@@ -9,4 +9,7 @@ class Recipe < ApplicationRecord
   validates :public, inclusion: { in: [true, false] }
   validates :user_id, presence: true
 
+  def food_cost
+    recipe_foods.map { |recipe_food| recipe_food.food.price * recipe_food.quantity }.sum
+  end
 end

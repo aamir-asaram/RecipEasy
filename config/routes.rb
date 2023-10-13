@@ -1,21 +1,27 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  root "recipes#index"
+  # Define your application routes
 
-  resources :users, only: [:index, :show] do
-    resources :recipes, only: [:index, :show, :new, :create, :destroy] do
-      resources :recipe_foods, only: [:index, :new, :create, :destroy]
+  root 'users#index'
+
+  resources :foods, except: [:update]
+
+  resources :users, only: %i[index show] do
+    resources :recipes, only: %i[index show new create destroy update] do
+      resources :recipe_foods, only: %i[index new create destroy]
     end
-    resources :foods, only: [:index, :new, :create]
+    resources :foods, only: %i[index new create]
   end
 
-  get "/public_recipes", to: "recipes#index", as: "public_recipes"
-  get "/recipes/:id", to: "recipes#show", as: "recipe"
-  get "/recipes", to: "users#index", as: "recipes"
-  get "/foods", to: "foods#index", as: "foods"
-  get "/general_shopping_list", to: "recipe_foods#index", as: "shopping"
+  resources :recipes, only: [:show, :update] # Corrected "recipes" resource
 
+  get '/public_recipes', to: 'recipes#index', as: 'public_recipes'
+  get '/recipes/:id', to: 'recipes#show', as: 'view_recipe'
+  get '/recipes', to: 'users#index', as: 'recipes'
+  get '/general_shopping_list', to: 'recipe_foods#index', as: 'shopping'
+
+  delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
 end

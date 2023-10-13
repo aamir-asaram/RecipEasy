@@ -1,0 +1,6 @@
+<tr>
+  <td><%= food.name %></td>
+  <td><%= food.measurement_unit %></td>
+  <td>$<%= food.price %></td>
+  <td><%= button_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-500 underline-offset-1 hover:underline" %></td>
+</tr>
