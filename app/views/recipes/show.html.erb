@@ -13,9 +13,10 @@
     <% end %>
   </div>
   <span class="text-2xl font-medium">Cooking time: <%= @recipe.cooking_time %> minutes</span>
+  <p class="text-lg"><%= @recipe.description %></p>
   <div class="flex items-center justify-between mt-4">
-    <p class="text-lg"><%= @recipe.description %></p>
     <% if @recipe.user == current_user %>
+      <%= link_to 'Generate shopping list', shopping_path, class:"bg-red-300 py-2 px-4 rounded-full" %>
       <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(recipe_id: @recipe, user_id: @recipe.user), class:"bg-yellow-300 py-2 px-4 rounded-full" %>
     <% end %>
   </div>
