@@ -1,34 +1,33 @@
-<%= form_with model:@recipe, url: user_recipes_path  do |form| %>
+<h1 class="underline underline-offset-1 text-2xl font-semibold mb-4 mt-8 ml-[5%]">Add New Recipe</h1>
 
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<%= form_with model: @recipe, url: user_recipes_path, html: { class: "w-1/5 ml-[5%] p-4  rounded-lg shadow-lg" } do |form| %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-gray-700 font-bold text-sm" %>
+    <%= form.text_field :name, class: "w-full p-2 rounded border focus:ring focus:ring-yellow-400" %>
   </div>
 
-  <div>
-    <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.number_field :preparation_time %>
+  <div class="mb-4">
+    <%= form.label :preparation_time, class: "block text-gray-700 font-bold text-sm" %>
+    <%= form.number_field :preparation_time, class: "w-full p-2 rounded border focus:ring focus:ring-yellow-400" %>
   </div>
 
-  <div>
-    <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.number_field :cooking_time %>
+  <div class="mb-4">
+    <%= form.label :cooking_time, class: "block text-gray-700 font-bold text-sm" %>
+    <%= form.number_field :cooking_time, class: "w-full p-2 rounded border focus:ring focus:ring-yellow-400" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="mb-4">
+    <%= form.label :description, class: "block text-gray-700 font-bold text-sm" %>
+    <%= form.text_area :description, class: "w-full p-2 rounded border focus:ring focus:ring-yellow-400" %>
   </div>
 
-  <label class="relative inline-flex items-center cursor-pointer">
+  <label class="relative inline-flex items-center cursor-pointer mb-4">
     <%= form.check_box :public, class: 'sr-only peer' %>
     <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
     <span class="ml-3 text-sm font-medium">Public</span>
   </label>
 
-
-  <div>
-    <%= form.submit %>
+  <div class="mb-4">
+    <%= form.submit "Submit", class: "w-full py-2 px-4 bg-yellow-300 font-semibold rounded-full focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>
