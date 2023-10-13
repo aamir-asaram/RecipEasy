@@ -33,14 +33,14 @@
   </thead>
 
   <tbody>
-    <% @recipe.recipe_foods.each_with_index do |food, index| %>
+    <% @recipe.recipe_foods.each_with_index do |recipe_food, index| %>
       <tr class="<%= index.even? ? 'bg-red-300' : 'bg-transparent'%>">
-        <td><%= food.food.name %></td>
-        <td><%= food.quantity %> <%= food.food.measurement_unit %></td>
-        <td>$<%= food.value %></td>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+        <td>$<%= recipe_food.value %></td>
         <td>
           <% if @recipe.user == current_user %>
-           <%= button_to 'Delete Ingredient', user_recipe_recipe_food_path(food, food, food), method: :delete, data: { confirm: 'Are you sure?' } %>
+           <%= button_to 'Delete Ingredient', user_recipe_recipe_food_path(recipe_id: @recipe, user_id: @recipe.user, id: recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-red-500 py-2 px-4 rounded-full' %>
           <% end %>
         </td>
       </tr>
