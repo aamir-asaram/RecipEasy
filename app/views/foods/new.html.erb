@@ -1,9 +1,9 @@
-<h1>New food</h1>
+<h1 class="underline underline-offset-1 text-2xl font-semibold mb-4 mt-8 ml-[5%]">Add New Food</h1>
 
 <%= render "form", food: @food %>
 
 <br>
 
 <div>
-  <%= link_to "Back to foods", foods_path %>
+  <%= link_to "Back to foods", foods_path, class: "hover:text-red-500 hover:underline underline-offset-1 text-2xl font-semibold mb-4 mt-8 ml-[5%]" %>
 </div>
