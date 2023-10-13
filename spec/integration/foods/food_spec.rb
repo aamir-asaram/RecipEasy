@@ -1,19 +1,5 @@
 require 'rails_helper'
 
-# t.bigint "user_id", null: false
-#     t.string "name", null: false
-#     t.string "measurement_unit", null: false
-#     t.decimal "price", precision: 10, scale: 2, null: false
-#     t.integer "quantity", default: 0, null: false
-
-# Food view
-# <tr>
-#   <td><%= food.name %></td>
-#   <td><%= food.measurement_unit %></td>
-#   <td>$<%= food.price %></td>
-#   <td><%= button_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-# </tr>
-
 RSpec.describe 'foods/index.html.erb', type: :feature do
   let(:user) { User.create(name: 'Jane', email: 'jane@doe.com', password: '123456') }
 
