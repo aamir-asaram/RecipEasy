@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
-require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   before(:each) do
     @user = User.new(name: 'John')
-    @recipe = @user.recipes.new(name: 'Pizza', description: 'Delicious', public: true, preparation_time: 10, cooking_time: 20)
+    @recipe = @user.recipes.new(name: 'Pizza', description: 'Delicious', public: true, preparation_time: 10,
+                                cooking_time: 20)
   end
 
   context 'When creating a recipe' do
@@ -40,5 +40,4 @@ RSpec.describe Recipe, type: :model do
       expect(@recipe.recipe_foods.length).to eq(0)
     end
   end
-
 end

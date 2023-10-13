@@ -4,9 +4,10 @@ require 'rails_helper'
 RSpec.describe 'userss/index.html.erb', type: :feature do
   let(:user) { User.create(name: 'John', email: 'test@test.com', password: '121212') }
 
-  describe 'Testing integration specs for recipes index page' do
+  describe 'Testing integration specs for users index page' do
     before :each do
-      Recipe.create(name: 'Pizza', preparation_time: 20, cooking_time: 10, description: 'Yummy', public: false, user: user)
+      Recipe.create(name: 'Pizza', preparation_time: 20, cooking_time: 10, description: 'Yummy', public: false,
+                    user: user)
       login_as(user, scope: :user)
       visit recipes_path
     end
