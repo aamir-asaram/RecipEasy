@@ -1,7 +1,9 @@
+<h1 class="underline underline-offset-1 text-2xl font-semibold mb-4 mt-8 ml-[5%]">Add New Ingredient</h1>
+
 <% if current_user.foods.empty? %>
   <h2 class="ml-[7%] mt-[2%] text-xl">You do not currently have any foods. Please <%= link_to 'add some', foods_path, class: "text-red-500" %> foods before creating a recipe.</h2>
 <% else %>
-  <%= form_with model: @recipe_food, url: user_recipe_recipe_foods_path, class: "ml-[5%] p-4 w-1/5 bg-yellow-100"  do |form| %>
+  <%= form_with model: @recipe_food, url: user_recipe_recipe_foods_path, class: "ml-[5%] rounded-lg shadow-lg p-4 w-1/5"  do |form| %>
     <div class="mb-4">
       <%= form.label :food_id, class: "block text-gray-700 font-bold" %>
       <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: "Select a Food" }, class: "w-full p-2 rounded border border-gray-300" %>
